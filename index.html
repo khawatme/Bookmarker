@@ -18,18 +18,26 @@
       <div class="row">
         <h3 class="py-5">Bookmark your favorite sites</h3>
         <div class="mb-3">
-          <form class="needs-validation" action="">
-          <label for="name" class="form-label h5">Site Name</label>
-          <input type="text" class="form-control" id="name" required placeholder="Bookmark Name">
-          <div class="invalid-feedback">
-            Name is required
-          </div>
-          <label for="url" class="form-label h5 pt-3">Site URL</label>
-          <input type="text" class="form-control" id="url" required placeholder="Website URL E.g. google.com">
-          <div class="invalid-feedback">
-            URL is required
-          </div>
-          <button id="submit" type="submit" class="btn btn-primary my-3" onclick="checkValidation()">Add</button>
+
+          <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-12">
+              <label for="name" class="form-label h5">Site Name</label>
+              <input type="text" class="form-control" id="name" required placeholder="Bookmark Name">
+              <div class="invalid-feedback">
+                Please provide a valid Bookmark name.
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label for="url" class="form-label h5 pt-3">Site URL</label>
+              <input type="text" class="form-control" id="url" required placeholder="Website URL E.g. google.com">
+              <div class="invalid-feedback">
+                Please provide a valid Bookmark URL.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Add</button>
+            </div>
           </form>
         </div>
       </div>

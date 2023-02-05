@@ -47,16 +47,26 @@ function clearForm() {
   strURL.value = '';
 }
 
-function checkValidation() {
-  // http,https empty
-  if (strSiteName.value == "") {
-    document.getElementById('name').classList.add('is-invalid');
-  } else if (strURL.value == "") {
-    document.getElementById('url').classList.add('is-invalid');
-  } else {
-    if(!strURL.value.startsWith("http://") || !strURL.value.startsWith("https://")) {
-      strURL.value = "https://" + strURL.value;
-    }
-    setSite();
-  }
-}
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      } else {
+        if(!strURL.value.startsWith("http://") || !strURL.value.startsWith("https://")) {
+          strURL.value = "https://" + strURL.value;
+        }
+        setSite();
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
